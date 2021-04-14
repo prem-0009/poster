@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
-function App() {
+import Register from "./component/Register/Register";
+import Login from "./component/Login/Login";
+import { NotFound } from "./component/NotFound/NotFound";
+import Home from "./component/Home/Home";
+import Navbar from "./component/Navbar/Navbar";
+import { stayUp } from "./redux/action/authAction";
+
+function App(props) {
+  // console.clear();
+  
+  console.log("from app", props);
+
+  useEffect(() => {
+    let token = localStorage.getItem("jwtToken");
+
+    props.stayUp(token);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+
+          <Route exact path="/home" component={Home} />
+
+          <Route path="" component={NotFound} />
+        </Switch>
+      </Router>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  // console.log(state);
+
+  return {
+    state,
+  };
+};
+
+export default connect(mapStateToProps, { stayUp })(App);
+
+// export default App;

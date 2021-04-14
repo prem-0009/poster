@@ -3,10 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+//below are for redux
+import { createStore, applyMiddleware, compose} from 'redux';
+import thunk from 'redux-thunk';
+import {Provider} from 'react-redux';
+
+//from reducers
+import loginReducer from './redux/reducers/loginReducer'
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+
+//this store will be passed down
+// ??composeEnhancers
+//?? need to add reducer before composeEnhancers
+const store = createStore(loginReducer, composeEnhancers(applyMiddleware(thunk)))
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
