@@ -1,77 +1,70 @@
-import React from "react";
+import React, { useRef } from "react";
 import { connect } from "react-redux";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
-// import { fade, makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
-import Button from "@material-ui/core/Button";
-import { Redirect, Route, NavLink } from "react-router-dom";
-//for css material ui
-import { useStyles } from "./navbarCss";
+import { Redirect, Route, NavLink, Link } from "react-router-dom";
+
+// import {searchMovie} from '../../redux/action/searchAction'
+import { logout } from "../../redux/action/authAction";
+import { getMyFavoritesList } from "../../redux/action/favAction";
+
+import "./navbar.scss";
 
 export const Navbar = (props) => {
-  const classes = useStyles();
+  // console.log(props);
 
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          {/*------------------------------------------- user info here */}
-          {props.state.isAuth ? (
-            <Button>{props.state.user.username}</Button>
-          ) : null}
-          <Typography className={classes.title} variant="h6" noWrap>
-            {/* Material-UI */}
-          </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
-          </div>
-          {props.state.isAuth ? (
-            <Button color="inherit">Logout</Button>
-          ) : (
-            <div>
-              <Button color="inherit">
-                <NavLink to="/register">Register</NavLink>
-              </Button>
-              <Button color="inherit">
-                <NavLink to="/login">Login</NavLink>
-              </Button>
-            </div>
-          )}
-        </Toolbar>
-      </AppBar>
+  return (//-------------------------------------------------------return------------
+    <div className="navbar">
+      <NavLink to="/" className="btn home">
+        Home
+      </NavLink>
+
+      {/*------------------------------------------- user info here */}
+      {props.state.loginReducer.isAuth ? (
+        <>
+          <button className="btn profile">
+            <NavLink to="/profilePage" className="btn profile">
+              {props.state.loginReducer.user.username}
+            </NavLink>
+          </button>
+          {/* <button className="btn favorites"> */}
+            <NavLink to="/favorites" className="btn favorites" onClick={()=>props.getMyFavoritesList(props.data.user.id)}>
+              My Favorites
+            </NavLink>
+            <NavLink to='/watchList' className='btn watchList'>
+              Watch List
+            </NavLink>
+          {/* </button> */}
+        </>
+      ) : null}
+
+      {props.state.loginReducer.isAuth ? (
+        <NavLink  to='/' onClick={props.logout} className="btn logout">
+          Logout
+        </NavLink>
+      ) : (
+        <div className="login-register">
+          <button className="btn register">
+            <NavLink to="/register" className="btn login">
+              Register
+            </NavLink>
+          </button>
+          <button className="btn login">
+            <NavLink to="/login" className="btn login">
+              Login
+            </NavLink>
+          </button>
+        </div>
+      )}
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
 
   return {
-    state,
+    state:state,
+    data: state.loginReducer,
   };
 };
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, { logout, getMyFavoritesList  })(Navbar);

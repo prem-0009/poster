@@ -1,0 +1,60 @@
+@import "variables.scss";
+
+$btn-color:#fff;
+
+$bg-color:#343a40;
+
+$font-color:rgb(185, 182, 182);
+
+$border: 2px solid black;
+
+.main-fav{
+  background-color: $bg-color;
+}
+
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+// height: 100vh;
+//   grid-template-columns: auto  ;
+//   border: 2px solid black;
+position: absolute;
+background-color: $bg-color;
+  
+  margin: 30px;
+  overflow: auto;
+//   height: 100vh;
+  padding: 0;
+  text-align: left;
+  .img {
+    max-width: 200px;
+    margin: 5px;
+    border: 2px solid black;
+    overflow: auto;
+    position: relative;
+  }
+  .para{
+      float: right;
+    width: 300px;
+    margin-left: 10px;
+    // border: $border;
+
+    
+    // padding: 0;
+  }
+.mainp{
+    // border: $border;
+    display: flex;
+    width: 70vh;
+}
+.btn{
+  // border: $border;
+  // color: $btn-color;
+
+}
+
+}
+.fav-delete{
+  height: 25px;
+}

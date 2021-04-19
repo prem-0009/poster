@@ -1,0 +1,39 @@
+@import "variables.scss";
+
+.btn {
+  background-color: $bg-color;
+  height: 35px;
+  font-size: large;
+  color: $font-color;
+  border: none;
+}
+
+.navbar {
+  // background-color: $bg-color;
+  padding: 20px;
+  //   height: 30px;
+  .home {
+    float: left;
+  }
+
+  .login-register {
+    float: right;
+  }
+  .login {
+    //  padding-left: 15px;
+    margin-left: 15px;
+    padding-left: 0;
+  }
+  .logout {
+    float: right;
+  }
+  .profile {
+    float: left;
+    margin-left: 35px;
+    color: $font-color;
+  }
+  .favorites {
+    margin-left: 3px;
+    float: left;
+  }
+}

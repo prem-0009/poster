@@ -15,6 +15,7 @@ export const Register = (props) => {
   return (
     <div>
       {props.isAuth ? (
+        // null
         <Route>
           <Redirect to="/home" />
         </Route>

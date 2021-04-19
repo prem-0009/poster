@@ -5,32 +5,43 @@ import { useEffect } from "react";
 const initialState = {
   isAuth: false,
   user: {},
+  moviesListHome: [],
   // token:jwtDecode(localStorage.getItem('jwtToken')),
 };
 
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.AUTH_SUCCESS_MESSAGE:
+    case actionTypes.AUTH_SUCCESS_MESSAGE://----------------------
       return { state };
 
-    case actionTypes.AUTH_USER_SIGN_IN_SUCCESSFUL:
+    case actionTypes.AUTH_USER_SIGN_IN_SUCCESSFUL://----------------
+      // console.log(action);
+
       return {
         isAuth: true,
         user: {
           username: action.message.username,
           email: action.message.email,
+          id: action.message.id,
         },
       };
 
-    case actionTypes.AUTH_USER_STAY_UP:
-      console.log(action);
+    case actionTypes.AUTH_USER_STAY_UP://--------------------stay up user
+      // console.log(action);
 
       return {
         isAuth: true,
-        user:{
-          username:action.message.username,
-          email:action.message.email
-        }
+        user: {
+          username: action.message.username,
+          email: action.message.email,
+          id: action.message.id,
+        },
+      };
+
+    case actionTypes.LOG_OUT://--------------------------------logout
+      return {
+        isAuth: false,
+        user: null,
       };
 
     default:

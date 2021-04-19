@@ -5,7 +5,7 @@ import jwtDecode from "jwt-decode";
 export const handleRegister = (username, email, pass) => async (dispatch) => {
   let info = { username, email, pass };
   if (username && email && pass) {
-    console.clear();
+    // console.clear();
     // console.log(info);
 
     try {
@@ -60,13 +60,22 @@ export const handleLogin = (email, pass) => async (dispatch) => {
 };
 
 export const stayUp = (token) => async (dispatch) => {
-  console.log("stayup");
+  // console.log("stayup");
   if (token) {
     let decode = jwtDecode(token);
-    console.log("stayup is activated");
+    // console.log("stayup is activated");
     dispatch({
       type: actionTypes.AUTH_USER_STAY_UP,
       message: decode,
     });
   }
 };
+
+export const logout = () => async (dispatch)=> {
+  localStorage.removeItem("jwtToken");
+    
+    dispatch({
+        type:actionTypes.LOG_OUT,
+        // message:
+    })
+}

@@ -1,0 +1,21 @@
+@import 'variables.scss';
+
+.display{
+    display: flex;
+    // flex-direction: row;
+    // grid-template-rows: auto;
+    // border: 2px solid white;
+    // width: 30vh;
+    overflow: auto;
+    
+    .img{
+        width: 300px;
+        margin: 3px;
+    }
+
+    .p{
+        color: $font-color;
+        // display: flex;
+        // overflow: auto;
+    }
+}

@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export const Login = (props) => {
-  console.clear();
+  // console.clear();
   console.log(props);
 
   const refEmail = useRef();
@@ -13,9 +13,10 @@ export const Login = (props) => {
 
   return (
     <div>
-      {props.state.isAuth ? (
+      {props.isAuth.isAuth ? (
+        // null
         <Route>
-          <Redirect to="/home" />
+          <Redirect to="/" />
         </Route>
       ) : (
         <div>
@@ -42,10 +43,10 @@ export const Login = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
 
   return {
-    state,
+    isAuth:state.loginReducer
   };
 };
 

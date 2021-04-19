@@ -1,0 +1,50 @@
+@import "variables.scss";
+
+$btn-color:#fff;
+
+$bg-color:#343a40;
+
+$font-color:rgb(185, 182, 182);
+
+$border: 2px solid black;
+
+
+.main-page-home{
+    // height: 100vh;
+    // display: grid;
+    // overflow: hidden;
+    // grid-template-rows: auto;
+    background-color: $bg-color;
+}
+
+
+.main-home{
+    // display: grid;
+    // grid-template-rows: auto auto;
+    // flex-direction: row;
+    overflow: hidden;
+    // border: $border;
+    padding: 5px;
+    width: 95%;
+    
+    
+}
+
+.fixed-home{
+    // display: grid;
+    // position: fixed;
+    // margin: auto;
+    // justify-content: center;
+    // width: 50%;
+    // border: $border;
+    margin-bottom: 15px;
+
+}
+
+
+
+.img-home{
+    max-width: 300px;
+    // overflow: hidden;
+    margin: 5px;
+}
