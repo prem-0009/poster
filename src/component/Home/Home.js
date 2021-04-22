@@ -4,11 +4,12 @@ import axios from "axios";
 
 import { searchMovie } from "../../redux/action/searchAction";
 import SearchBar from "../SearchBar/SearchBar";
-import { OthersFavorites } from "../OthersFavorites/OthersFavorites";
+
 
 import "./home.scss";
 
 const Home = (props) => {
+  console.clear();
   const [homeMovies, setHomeMovies] = useState([]);
 
   const refSearchMovie = useRef();
@@ -23,7 +24,7 @@ const Home = (props) => {
       )
       .then((res) => {
         setHomeMovies(res.data.results);
-        console.log(res.data.results[0]);
+        
       })
       .catch((e) => console.log(e));
   }, []);
@@ -34,16 +35,17 @@ const Home = (props) => {
     <div className="main-page-home">
       <div className="fixed-home">
         <SearchBar />
-        <OthersFavorites />
-        <h3>upcoming movies</h3>
+
+        <h3>Upcoming movies...</h3>
       </div>
 
       <div className="main-home">
-        {homeMovies.map((tile) => (
+        {homeMovies.map((item) => (
           <img
             className="img-home"
-            src={imgHttps + tile.poster_path}
-            alt={tile.title}
+            src={imgHttps + item.poster_path}
+            alt={item.title}
+            key={item.id}
           />
         ))}
       </div>

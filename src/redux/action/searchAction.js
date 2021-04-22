@@ -3,9 +3,7 @@ import * as actionTypes from "../actionTypes/actionTypes";
 
 export const searchMovie = (movie) => async (dispatch) => {
   console.log(movie);
-  if(!movie){
-    alert('write something')
-  }
+  
 
   await axios
     .get(
@@ -16,7 +14,7 @@ export const searchMovie = (movie) => async (dispatch) => {
         type: actionTypes.LOAD_SEARCH_MOVIES,
         payload: res.data.results,
       });
-      console.log(res.data.results);
+      // console.log(res.data.results);
     })
     .catch((e) => console.log(e));
 };

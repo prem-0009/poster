@@ -4,12 +4,12 @@ import { Redirect, Route, NavLink, Link } from "react-router-dom";
 
 // import {searchMovie} from '../../redux/action/searchAction'
 import { logout } from "../../redux/action/authAction";
-import { getMyFavoritesList } from "../../redux/action/favAction";
+import { getMyFavoritesList, getAllFavorites } from "../../redux/action/favAction";
 
 import "./navbar.scss";
 
 export const Navbar = (props) => {
-  // console.log(props);
+  console.log(props);
 
   return (//-------------------------------------------------------return------------
     <div className="navbar">
@@ -20,18 +20,25 @@ export const Navbar = (props) => {
       {/*------------------------------------------- user info here */}
       {props.state.loginReducer.isAuth ? (
         <>
-          <button className="btn profile">
-            <NavLink to="/profilePage" className="btn profile">
+          {/* <button className="btn profile"> */}
+            <NavLink to="/profilePage" 
+            className="btn profile"
+            >
               {props.state.loginReducer.user.username}
             </NavLink>
-          </button>
+          {/* </button> */}
           {/* <button className="btn favorites"> */}
             <NavLink to="/favorites" className="btn favorites" onClick={()=>props.getMyFavoritesList(props.data.user.id)}>
               My Favorites
             </NavLink>
-            <NavLink to='/watchList' className='btn watchList'>
-              Watch List
-            </NavLink>
+            <Link 
+            // to='/allsFavList' 
+            className='btn watchList' 
+            to={{pathname:'/allsFavList', state:{props:true}}}
+            onClick={props.getAllFavorites}
+            >
+          Other favorite list
+            </Link>
           {/* </button> */}
         </>
       ) : null}
@@ -67,4 +74,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { logout, getMyFavoritesList  })(Navbar);
+export default connect(mapStateToProps, { logout, getMyFavoritesList, getAllFavorites  })(Navbar);

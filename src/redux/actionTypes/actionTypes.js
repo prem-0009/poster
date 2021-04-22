@@ -17,4 +17,8 @@ export const STAY_UP_FAV_MOVIES='STAY_UP_FAV_MOVIES';
 export const NEW_LIST_AFTER_DELETION = 'NEW_LIST_AFTER_DELETION';
 
 export const ADD_TO_FAV='ADD_TO_FAV'
+
+export const GET_ALL_FAV='GET_ALL_FAV';
+
+export const EDIT_EMAIL='EDIT_EMAIL'
 // export const AUTH_

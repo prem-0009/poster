@@ -1,10 +1,54 @@
 @import "variables.scss";
 
-.searchbar {
-    margin-top: 4%;
 
-
+.btn-searchbar{
+    width: 333px;
 }
+
+
+
+
+
+// .main-searchpage {
+//     margin-top: 20px;
+// }
+
+
+// .second-searchPage{
+//     margin-top: 50px;
+//     margin-bottom: 50px;
+//     // background-color: lightsteelblue;
+//     // border: lightsteelblue;
+//     .input-searchPage{
+//         height: 30px;
+//         width: 200px;
+//         font-size: large;
+//         // border: none;
+//         border-radius: 10px;
+//         // background-color: $bg-color;
+        
+//     }
+    
+//     .input-searchPage:hover{
+
+//         // box-shadow:0 0 15px 4px rgba(0,0,0,2);
+//         // border: none;
+//     }
+    
+//     // .button-sp{
+//     //     margin-left: 2px;
+//     //     height: 33px;
+//     //     width: 80px;
+//     //     font-size: larger;
+//     //     border: none;
+//     //     background-color: gainsboro;
+//     //     // text-emphasis-color: ;;?
+//     //     border-radius: 10px;
+//     //     color: rebeccapurple;
+//     // }
+    
+// }
+
 
 .btn{
     background-color: $bg-color;

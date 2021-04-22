@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import * as actionTypes from "../../redux/actionTypes/actionTypes";
 
 import { searchMovie } from "../../redux/action/searchAction";
 import {
@@ -8,92 +9,85 @@ import {
   getMyFavoritesList,
 } from "../../redux/action/favAction";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./searchPage.scss";
 
 export const SearchPage = (props) => {
+  //-------------------------------start component
   //   console.log(props.movieList[0]);
-  // console.log(props);
+  // console.clear();
+  console.log("searchpage", props);
 
   const refSearchMovie = useRef();
 
   let imgHttps = `https://image.tmdb.org/t/p/w500`;
 
-  const handleKeyPress = (e) => {
-    //haven't implement this yet
-    console.log(e);
-    if (e.keyCode === 13) {
-      props.searchMovie(e.target.value);
-    }
-    //   e.keyCode === 13 ? (props.searchMovie(e.target.value)):(null)
-  };
-
-  //on click call a function which will check if the movie has already been added\
+  let getMovieFromLocal;
   let disable;
+  // let findMovie = props.favoriteList.find((item)=>item._id=732450);
+  // console.log(findMovie);
+
   const checkNAddToFavorite = (movie, userId) => {
-    // console.clear()
-    // console.log(movie);
-    // console.log(userId);
-    // console.log(props);
+    //-----------------------------------------------------------to add movies
 
-    // props.getMyFavoritesList(userId.id);
-    console.log("props", props);
+    // console.log("movieid", movie);
 
-    if (props.favoriteList) {
-      props.favoriteList.map((item) => {
-        //item.id is not being sent back to databases
-        if (movie.id !== item._id) {
-          console.log('-------------------adding ----------');
-          
-          console.log("item", item); //no movie id here
-          console.log("movie", movie);
+    if (props.favoriteList.length > 0) {
+      console.log("adding on the old list");
 
-          props.addToFavorite(movie, userId);
-        }
-        
-        return;
-        
-      });
+      let findMovie = props.favoriteList.filter(
+        (item) => item._id === movie.id
+      );
+      console.log(findMovie);
+      if (findMovie.length !== 0) {
+        alert("movie already in the list");
+      }
+      if (findMovie.length === 0) {
+        props.addToFavorite(movie, userId);
+      }
     } else {
+      console.log("making new fav list");
+
       props.addToFavorite(movie, userId);
     }
   };
 
-
   return (
-    <div>
-      <input
-        placeholder="Search…"
-        ref={refSearchMovie}
-        //   onClick={() => props.searchMovie(refSearchMovie.current.value)}
+    <div className="main-searchPage">
+      <div className="second-searchPage">
+              <input
+                className="input-searchPage"
+                placeholder="Search…"
+                ref={refSearchMovie}
+                //   onClick={() => props.searchMovie(refSearchMovie.current.value)}
 
-        onKeyPress={handleKeyPress}
-      />
-      <button onClick={() => props.searchMovie(refSearchMovie.current.value)}>
-        <NavLink to="/searchPage">search</NavLink>
-      </button>
+                // onKeyPress={handleKeyPress}
+              />
+              <button
+                className="button-sp"
+                onClick={() => props.searchMovie(refSearchMovie.current.value)}
+              >
+                <Link to="/searchPage">search</Link>
+              </button>
+      </div>
 
       {/* </NavLink> */}
       <div className="display">
-        {props.movieList
-          ? props.movieList.map((item) => (
+        {props.searchedList
+          ? props.searchedList.map((item) => (
               <div
-              // className=' display'
+                // className=' display'
+                key={item.id}
               >
                 <img src={imgHttps + item.poster_path} className="img" />
-                {/* <button onClick={() => props.addToFavorite(item, props.user)}>   works*/}
+
                 <button
                   disabled={disable}
                   onClick={() => checkNAddToFavorite(item, props.user)}
                 >
                   add
                 </button>
-                <button
-                  disabled={disable}
-                  // onClick={() => checkNAddToWatchList(item, props.user)}
-                >
-                  add to watchlist
-                </button>
+
                 <p className="p">{item.overview}</p>
               </div>
             ))
@@ -108,9 +102,9 @@ const mapStateToProps = (state) => {
   // console.log(state);
 
   return {
-    movieList: state.moviesReducer.searchedMovieList,
+    searchedList: state.moviesReducer.searchedMovieList,
     user: state.loginReducer.user,
-    favoriteList: state.moviesReducer.myFavoritesList,
+    favoriteList: state.moviesReducer.myFavoriteList,
   };
 };
 

@@ -28,8 +28,8 @@ export const handleRegister = (username, email, pass) => async (dispatch) => {
   }
 };
 
-export const handleLogin = (email, pass) => async (dispatch) => {
-  let userInfo = { email, pass };
+export const handleLogin = (username, pass) => async (dispatch) => {
+  let userInfo = { username, pass };
   // console.clear();
 
   try {

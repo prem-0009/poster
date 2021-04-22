@@ -4,7 +4,7 @@ import axios from "axios";
 
 import { searchMovie } from "../../redux/action/searchAction";
 
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './searchBar.scss'
 
 export const SearchBar = (props) => {
@@ -13,19 +13,28 @@ export const SearchBar = (props) => {
   //   const searchMovieHere = (movie) => {
   console.log("here");
   // console.log(movie);
+const hi = ()=>{
+  props.searchMovie(refSearchMovie.current.value ? refSearchMovie.current.value:'batman');
+}
 
   return (
-    <div className='searchbar'>
+    <div className='main-searchbar'>
       
         <input
+          className='in-searchbar'
           placeholder="Search…"
       
           ref={refSearchMovie}
           //   onClick={() => props.searchMovie(refSearchMovie.current.value)}
         />
-        <button onClick={() => props.searchMovie(refSearchMovie.current.value ? refSearchMovie.current.value:'batman')} className='btn navLink'>
-          <NavLink to="/searchPage" className='btn navLink'>search</NavLink>
+        <button 
+        // onClick={() => props.searchMovie(refSearchMovie.current.value ? refSearchMovie.current.value:'batman')}
+         className='btn btn-searchbar'>
+           {/* problem is here...----------------------------------- */}
+          <Link onClick={() => props.searchMovie(refSearchMovie.current.value ? refSearchMovie.current.value:'batman')} 
+          to="/searchPage" className='btn '>search</Link>
         </button>
+        
 
         {/* </NavLink> */}
       

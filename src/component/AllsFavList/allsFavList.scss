@@ -1,0 +1,29 @@
+@import "variables.scss";
+
+.main-one {
+  height: 80vh;
+  overflow: auto;
+}
+
+.main-alls {
+  margin: auto;
+  width: 80%;
+  background-color: $bg-color;
+
+  margin-bottom: 20px;
+  height: 95vh;
+}
+
+.each-alls {
+  padding-top: 1px;
+  // border: $border;
+}
+
+.each-one-alls {
+  display: flex;
+  overflow: auto;
+}
+.img-alls {
+  width: 200px;
+  margin: 3px;
+}

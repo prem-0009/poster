@@ -44,6 +44,18 @@ const loginReducer = (state = initialState, action) => {
         user: null,
       };
 
+      case actionTypes.EDIT_EMAIL://-----------------------------change email
+      console.log(action);
+      
+      return {
+        ...state,
+        user:{
+          username:action.payload.username,
+          email:action.payload.email,
+          id:action.payload._id
+        }
+      }
+
     default:
       return state;
   }

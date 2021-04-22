@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "./signup.css";
+import "./register.scss";
 import { connect } from "react-redux";
 
 import { handleRegister } from "../../redux/action/authAction";
@@ -15,20 +15,24 @@ export const Register = (props) => {
   return (
     <div>
       {props.isAuth ? (
-        // null
         <Route>
           <Redirect to="/home" />
         </Route>
       ) : (
-        <div className="signup">
-          <h2>Register</h2>
-          <br></br>
-          <input ref={refUsername} placeholder="user-name"></input>
-          <br></br>
-          <input ref={refEmail} placeholder="email"></input>
-          <br></br>
-          <input ref={refPassword} placeholder="password"></input>
-          <br></br>
+        <div className="main-reg">
+          <h2 className="h-reg">Register</h2>
+          <input
+            className="in-reg"
+            ref={refUsername}
+            placeholder="user-name"
+          ></input>
+          <input className="in-reg" ref={refEmail} placeholder="email"></input>
+          <input
+            className="in-reg"
+            ref={refPassword}
+            placeholder="password"
+          ></input>
+
           <button
             onClick={() =>
               props.handleRegister(
@@ -37,6 +41,7 @@ export const Register = (props) => {
                 refPassword.current.value
               )
             }
+            className="btn-reg"
           >
             submit
           </button>

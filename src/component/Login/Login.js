@@ -8,7 +8,7 @@ export const Login = (props) => {
   // console.clear();
   console.log(props);
 
-  const refEmail = useRef();
+  const refUsername = useRef();
   const refPassword = useRef();
 
   return (
@@ -19,17 +19,17 @@ export const Login = (props) => {
           <Redirect to="/" />
         </Route>
       ) : (
-        <div>
-          <h2>Login</h2>
-          <br></br>
-          <input placeholder="email" ref={refEmail}></input>
-          <br></br>
-          <input placeholder="password" ref={refPassword}></input>
-          <br></br>
+        <div className="main-reg">
+          <h2 className='h-reg'>Login</h2>
+
+          <input className='in-reg' placeholder="user name" ref={refUsername}></input>
+          <input className='in-reg' placeholder="password" ref={refPassword}></input>
+
           <button
+          className='btn-reg'
             onClick={() =>
               props.handleLogin(
-                refEmail.current.value,
+                refUsername.current.value,
                 refPassword.current.value
               )
             }
@@ -46,7 +46,7 @@ const mapStateToProps = (state) => {
   // console.log(state);
 
   return {
-    isAuth:state.loginReducer
+    isAuth: state.loginReducer,
   };
 };
 

@@ -1,0 +1,19 @@
+@import "variables.scss";
+
+.tr1-profile{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 10px;
+    // border: $border;
+    margin-bottom: 20px;
+}
+.tr2-profile{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    // column-gap: 10px;
+    // border: $border;
+}
+
+.user-profile{
+    margin-right: 20px;
+}

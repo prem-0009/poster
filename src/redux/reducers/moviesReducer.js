@@ -1,32 +1,37 @@
 import * as actionTypes from "../actionTypes/actionTypes";
-import jwtDecode from "jwt-decode";
-import { useEffect } from "react";
+// import jwtDecode from "jwt-decode";
+// import { useEffect } from "react";
 
 const initialState = {
-  // myFavoriteList: localStorage.getItem("myFavList")
-  //   ? JSON.parse(localStorage.getItem("myFavList"))
-  //   : [],
+  myFavoriteList:
+    // localStorage.getItem("myFavList")
+    //   ? localStorage.getItem("myFavList")
+    //   :
+    [],
   searchedMovieList: [],
-  myFavoritesList: [],
+  // myFavoritesList: [],
   randomFavoritesList: [],
-  counter:0
+  allUserFavList: [],
   // token:jwtDecode(localStorage.getItem('jwtToken')),
 };
 
 const moviesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.LOAD_SEARCH_MOVIES:
+    case actionTypes.LOAD_SEARCH_MOVIES: //------------------load search movies
       console.log(action.payload);
 
       return {
+        ...state,
         searchedMovieList: [...action.payload],
       };
 
-    case actionTypes.GET_MY_FAVORITES:
+    case actionTypes.GET_MY_FAVORITES: //---------------------get my fav
+      console.log(action);
+
       return {
         ...state,
-        myFavoritesList: [...action.payload],
-        counter:state.counter+1
+        myFavoriteList: [...action.payload],
+        // counter:state.counter+1
       };
 
     // case actionTypes.STAY_UP_FAV_MOVIES:
@@ -37,27 +42,36 @@ const moviesReducer = (state = initialState, action) => {
     //     myFavoritesList: [...action.payload],
     //   };
 
-    case actionTypes.NEW_LIST_AFTER_DELETION:
+    case actionTypes.NEW_LIST_AFTER_DELETION: //-----------------new list after deletion
       return {
         ...state,
-        myFavoritesList: [...action.payload],
+        myFavoriteList: [...action.payload],
       };
 
-    case actionTypes.ADD_TO_FAV:
-      console.log(initialState.myFavoritesList);
+    case actionTypes.ADD_TO_FAV: //------------------------------add to fav
+      console.log(state.myFavoriteList);
 
-      localStorage.setItem("myFavList", JSON.stringify(state.myFavoritesList));
-      // localStorage.setItem("watched", JSON.stringify(state.watched));
-
-      // localStorage.setItem('myFavList',[...state.myFavoritesList])
-      console.log(action);
+      console.log("add to action", action);
 
       return {
         ...state,
-        myFavoritesList: state.myFavoritesList
-          ? [...state.myFavoritesList, action.payload]
-          : [...action.payload],
-        // localStorage.setItem("myFavList", JSON.stringify(action.payload))
+        myFavoriteList:
+          state.myFavoriteList.length > 0
+            ? [...state.myFavoriteList, action.payload]
+            : [action.payload],
+        //  [action.payload],
+      };
+
+    case actionTypes.GET_ALL_FAV:
+      let allFavorite = [];
+      //putting username and his list in 'allFavorite'
+      action.payload.forEach((item) => {
+        allFavorite.push([item.username, item.favMovies]);
+      });
+      // console.log(allFavorite);
+      return {
+        ...state,
+        allUserFavList: [...allFavorite],
       };
 
     default:
@@ -66,5 +80,3 @@ const moviesReducer = (state = initialState, action) => {
 };
 
 export default moviesReducer;
-// https://image.tmdb.org/t/p/w500undefined
-// https://image.tmdb.org/t/p/w500undefined

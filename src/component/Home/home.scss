@@ -1,12 +1,5 @@
 @import "variables.scss";
 
-$btn-color:#fff;
-
-$bg-color:#343a40;
-
-$font-color:rgb(185, 182, 182);
-
-$border: 2px solid black;
 
 
 .main-page-home{
@@ -14,17 +7,19 @@ $border: 2px solid black;
     // display: grid;
     // overflow: hidden;
     // grid-template-rows: auto;
+    margin-top: 50px;
     background-color: $bg-color;
 }
 
 
 .main-home{
-    // display: grid;
+    display: flex;
     // grid-template-rows: auto auto;
     // flex-direction: row;
-    overflow: hidden;
+    overflow: auto;
     // border: $border;
     padding: 5px;
+    margin: auto;
     width: 95%;
     
     
@@ -44,7 +39,8 @@ $border: 2px solid black;
 
 
 .img-home{
-    max-width: 300px;
+    max-width: 200px;
     // overflow: hidden;
     margin: 5px;
+    border-style: solid;
 }

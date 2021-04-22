@@ -1,0 +1,30 @@
+.main-reg {
+  display: flex;
+  flex-wrap: wrap;
+  width: 20%;
+  margin: auto;
+}
+
+.h-reg {
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.in-reg {
+  margin: 5px;
+  font-size: large;
+  width: 100%;
+  height: 25px;
+}
+
+.btn-reg {
+  font: "Atkinson";
+  margin: auto;
+  margin-top: 30px;
+  height: 35px;
+  font-size: large;
+}
+
+.btn-reg:hover {
+ box-shadow: 2px 2px 2px 2px;
+}

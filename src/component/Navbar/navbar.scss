@@ -9,9 +9,9 @@
 }
 
 .navbar {
-  // background-color: $bg-color;
   padding: 20px;
-  //   height: 30px;
+
+  margin-bottom: 40px;
   .home {
     float: left;
   }
@@ -20,7 +20,6 @@
     float: right;
   }
   .login {
-    //  padding-left: 15px;
     margin-left: 15px;
     padding-left: 0;
   }
@@ -33,7 +32,14 @@
     color: $font-color;
   }
   .favorites {
-    margin-left: 3px;
-    float: left;
+    margin-right: 40px;
+  }
+  .watchList {
+    margin-left: 40px;
+  }
+  .btn:hover {
+    box-shadow: 0 0 15px 4px gray;
+    border: none;
+    padding: none;
   }
 }
