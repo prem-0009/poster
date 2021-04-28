@@ -1,19 +1,22 @@
 @import "variables.scss";
 
 .btn {
-  background-color: $bg-color;
+  // background-color: $bg-color;
   height: 35px;
-  font-size: large;
-  color: $font-color;
-  border: none;
+  font-size: medium;
+  color: white;
+  // border: none;
 }
 
 .navbar {
-  padding: 20px;
+  // padding: 20px;
+  background-color: rgb(12, 27, 26);
 
   margin-bottom: 40px;
   .home {
-    float: left;
+    // float: left;
+    // height: 2vmin;
+  width: 3vmin;
   }
 
   .login-register {
@@ -27,19 +30,60 @@
     float: right;
   }
   .profile {
-    float: left;
-    margin-left: 35px;
-    color: $font-color;
+    // float: left;
+    // margin-left: 15px;
+    color: white;
   }
   .favorites {
-    margin-right: 40px;
+    // margin-right: 10px;
   }
   .watchList {
-    margin-left: 40px;
-  }
-  .btn:hover {
-    box-shadow: 0 0 15px 4px gray;
-    border: none;
-    padding: none;
+    // margin-left: 10px;
   }
 }
+.btn:hover {
+  box-shadow: 0 0 15px 4px gray;
+  color: white;
+  // border: none;
+  padding: none;
+  border: 2xp solid white;
+}
+.home-navbar {
+  color: white;
+  height: 3vmin;
+  width: 5vmin;
+}
+.home-navbar:hover {
+  box-shadow: 0 0 15px 4px gray;
+  // border: 2px solid white;
+}
+.display-home{
+  width: 60vw;
+  margin-top: 20px;
+  p{
+    color: white;
+  text-align: justify;
+  margin: 10px;
+  width: 30vw;
+  }
+}
+.indicator-home{
+  position: absolute;
+  margin-bottom: -30px;
+}
+.h-home{
+  color: goldenrod;
+}
+.date-home{
+margin-bottom: 80px;
+}
+.flex-home{
+  display: flex;
+  flex-wrap: wrap;
+  width: 30vw;
+}
+
+// .search-navbar{
+//   margin: auto;
+//   margin-left: -20px;
+// }

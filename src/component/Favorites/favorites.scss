@@ -9,12 +9,14 @@ $font-color: rgb(185, 182, 182);
 $border: 2px solid #495057;
 
 .main-fav {
-  background-color: #495057;
+  // background-color: #244464;
   margin: auto;
-  width: 50vw;
-  height: 80vh;
+  width: 70vw;
+  // height: 80vh;
   overflow: auto;
+  // margin-top: 20;
   // border: $border;
+
 }
 
 .sec-fav{
@@ -24,22 +26,41 @@ $border: 2px solid #495057;
 .each-fav{
   display: flex;
   margin: 5px;
-  border: 2px solid gray;
+  // border: 2px solid gray;
   // overflow: auto;
+  margin-top: 50px;
   
 }
 
 .each-para {
   float: right;
+  color: whitesmoke;
+  text-align: justify;
+  margin: 15px;
 }
 
 .delete-fav{
   height: 25px;
   float: right;
-  margin-top: 2px;
+  margin-top: 5px;
+  background-color: transparent;
+  border: none;
   
+  margin-right: 9em;
+}
+
+.del-fav{
+  color: blue($color: #000000);
+  height: 3vmin;
+  width: 2vmin;
+}
+
+.del-fav:hover{
+  color: orangered;
 }
 
 .img-fav{
-  width: 200px;
+  // width: 200px;
+  max-width: 18em;
+  margin-left: 7em;
 }

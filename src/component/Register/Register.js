@@ -13,14 +13,14 @@ export const Register = (props) => {
   const refPassword = useRef();
 
   return (
-    <div>
+    <div className='first-register'>
       {props.isAuth ? (
         <Route>
           <Redirect to="/home" />
         </Route>
       ) : (
         <div className="main-reg">
-          <h2 className="h-reg">Register</h2>
+          <h2 className="h-reg txt">Register</h2>
           <input
             className="in-reg"
             ref={refUsername}

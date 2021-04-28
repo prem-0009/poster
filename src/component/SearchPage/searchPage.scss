@@ -1,7 +1,9 @@
 @import 'variables.scss';
 
 .display{
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    // flex-wrap: wrap;
     // flex-direction: row;
     // grid-template-rows: auto;
     // border: 2px solid white;
@@ -9,8 +11,9 @@
     overflow: auto;
     
     .img{
-        width: 200px;
-        margin: 3px;
+        // width: 300px;
+        // margin: 3px;
+        // position: relative;
     }
 
     .p{
@@ -21,3 +24,52 @@
 }
 
 
+.second-searchPage{
+    margin: auto;
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+.button-sp{
+    // margin-left: 3px;
+    font-size:large;
+}
+
+.add-searchPage{
+    // position: relative;
+    // bottom: 40px;
+    // right: -65px;
+    background-color: transparent;
+    border: none;
+    // width: 5vmin;
+    // height: 4vmin;
+}
+
+// .home-navbar{
+//     width: 5vmin;
+//     height: 4vmin;
+// }
+
+.add-searchPage{
+    color: rgb(231, 228, 221);
+    // border:2px solid white;
+    width: fit-content;
+    // margin-top: 0px;
+}
+
+.add-searchPage:hover{
+    color: orangered;
+}
+
+.icon-searchPage{
+    width: 3vmin;
+    height: 3vmin;
+    // border: 2px solid white;
+}
+.display-within{
+    display: grid;
+    // flex-direction: rows;
+    grid-template-rows: auto;
+    // width: 30vw;
+    border: 2px solid white;
+}

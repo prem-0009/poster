@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import * as actionTypes from "../../redux/actionTypes/actionTypes";
+import heart from '../../icons/heart-icon.png'
 
 import { searchMovie } from "../../redux/action/searchAction";
 import {
@@ -11,6 +12,8 @@ import {
 
 import { NavLink, Link } from "react-router-dom";
 import "./searchPage.scss";
+import { FaHeart } from "react-icons/fa";
+
 
 export const SearchPage = (props) => {
   //-------------------------------start component
@@ -19,6 +22,7 @@ export const SearchPage = (props) => {
   console.log("searchpage", props);
 
   const refSearchMovie = useRef();
+  const [viewInfo, setViewInfo] = useState(false);
 
   let imgHttps = `https://image.tmdb.org/t/p/w500`;
 
@@ -55,20 +59,23 @@ export const SearchPage = (props) => {
   return (
     <div className="main-searchPage">
       <div className="second-searchPage">
-              <input
-                className="input-searchPage"
-                placeholder="Search…"
-                ref={refSearchMovie}
-                //   onClick={() => props.searchMovie(refSearchMovie.current.value)}
+        {/* <input
+          className="input-searchPage"
+          placeholder="Search…"
+          ref={refSearchMovie} */}
+          {/* //   onClick={() => props.searchMovie(refSearchMovie.current.value)}
 
-                // onKeyPress={handleKeyPress}
-              />
-              <button
-                className="button-sp"
-                onClick={() => props.searchMovie(refSearchMovie.current.value)}
-              >
-                <Link to="/searchPage">search</Link>
-              </button>
+          // onKeyPress={handleKeyPress}
+        /> */}
+        {/* <button
+          className="button-sp btn"
+          onClick={() => props.searchMovie(refSearchMovie.current.value)}
+        >
+          <NavLink to="/searchPage" className="btn">
+            search
+          </NavLink>
+          {/* search */}
+        {/* </button> */} 
       </div>
 
       {/* </NavLink> */}
@@ -76,19 +83,49 @@ export const SearchPage = (props) => {
         {props.searchedList
           ? props.searchedList.map((item) => (
               <div
-                // className=' display'
+                className=' display-within'
                 key={item.id}
               >
-                <img src={imgHttps + item.poster_path} className="img" />
+                {/* <div> */}
+                  <img
+                    src={imgHttps + item.poster_path}
+                    className="img"
+                    alt={item.title}
+                    className="img-searchPage"
+                  />
+                {/* </div> */}
+                {props.state.loginReducer.isAuth ? (
+                  <button
+                  // // src={heart}
+                    disabled={disable}
+                    onClick={() => checkNAddToFavorite(item, props.user)}
+                    className='add-searchPage'
+                    
+                  >
 
-                <button
-                  disabled={disable}
-                  onClick={() => checkNAddToFavorite(item, props.user)}
-                >
-                  add
-                </button>
+                    {/* add */}
+                    <FaHeart 
+                    /* // disabled={disable},
+                    // onClick={() => checkNAddToFavorite(item, props.user)},
+                    // className='add-searchPage' */
+                    className='icon-searchPage'
+                     /> 
+                   </button> 
+                ) : (
+                  <button
+                    disabled={disable}
+                    onClick={() => alert("login to have this features")}
+                  >
+                    <FaHeart 
+                    /* // disabled={disable},
+                    // onClick={() => checkNAddToFavorite(item, props.user)},
+                    // className='add-searchPage' */
+                    className='icon-searchPage'
+                     />
+                  </button>
+                )}
 
-                <p className="p">{item.overview}</p>
+                {/* <p className={`p-searchPage p `}>{item.overview}</p> */}
               </div>
             ))
           : null}
@@ -102,6 +139,7 @@ const mapStateToProps = (state) => {
   // console.log(state);
 
   return {
+    state: state,
     searchedList: state.moviesReducer.searchedMovieList,
     user: state.loginReducer.user,
     favoriteList: state.moviesReducer.myFavoriteList,

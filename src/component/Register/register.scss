@@ -3,22 +3,29 @@
   flex-wrap: wrap;
   width: 20%;
   margin: auto;
+  // margin-left: 32em;
+  // align-items: center;
+  // justify-content: center;
+  // margin-bottom: 30%;
+  // border: 2px solid black;
+  
 }
 
 .h-reg {
   margin: auto;
   margin-bottom: 40px;
+  
 }
 
 .in-reg {
   margin: 5px;
-  font-size: large;
+  font-size: medium;
   width: 100%;
   height: 25px;
 }
 
 .btn-reg {
-  font: "Atkinson";
+  
   margin: auto;
   margin-top: 30px;
   height: 35px;
@@ -27,4 +34,24 @@
 
 .btn-reg:hover {
  box-shadow: 2px 2px 2px 2px;
+}
+
+.txt{
+  color: white;
+}
+
+.first-register{
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // margin-bottom: 30%;
+  display: flex;
+  margin-left: -8em;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  // text-align: center;
+  height: 80vh;
+  margin-top: -4em;
+
 }

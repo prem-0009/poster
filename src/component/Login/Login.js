@@ -12,7 +12,7 @@ export const Login = (props) => {
   const refPassword = useRef();
 
   return (
-    <div>
+    <div className='first-register'>
       {props.isAuth.isAuth ? (
         // null
         <Route>
@@ -20,7 +20,7 @@ export const Login = (props) => {
         </Route>
       ) : (
         <div className="main-reg">
-          <h2 className='h-reg'>Login</h2>
+          <h2 className='h-reg txt'>Login</h2>
 
           <input className='in-reg' placeholder="user name" ref={refUsername}></input>
           <input className='in-reg' placeholder="password" ref={refPassword}></input>
