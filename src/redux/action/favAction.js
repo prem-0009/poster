@@ -15,7 +15,7 @@ export const addToFavorite = (movie, user) => async (dispatch) => {
 
   await axios({
     method: "post",
-    url: `http://localhost:4000/api/favorites/add-favorite`,
+    url: `/api/favorites/add-favorite`,
     data: {
       movie: movie,
       user: user,
@@ -41,7 +41,7 @@ export const getMyFavoritesList = (myId) => async (dispatch) => {
   // console.log(myId);
   let getMyFavList = await axios({
     method: "get",
-    url: `http://localhost:4000/api/favorites/get-favorites-by-id/${myId}`,
+    url: `/api/favorites/get-favorites-by-id/${myId}`,
   });
   // console.log(getMyFavList);
   console.log(getMyFavList.data.favMovies);
@@ -68,7 +68,7 @@ export const handleToDeleteFav = (movieId, userId) => async (dispatch) => {
 
   let deleteThisMovie = await axios({
     method: "delete",
-    url: `http://localhost:4000/api/favorites/delete/${userId}/${movieId}`,
+    url: `/api/favorites/delete/${userId}/${movieId}`,
   });
   //after we delete one movie get the new list from BE
   console.log(deleteThisMovie.data);
@@ -82,7 +82,7 @@ export const getAllFavorites = () => async (dispatch) => {
   try {
     let getAll = await axios({
       method: "get",
-      url: `http://localhost:4000/api/favorites/get-all-favorites`,
+      url: `/api/favorites/get-all-favorites`,//http://localhost:4000
     });
     // console.log(getAll);
     let data = [];

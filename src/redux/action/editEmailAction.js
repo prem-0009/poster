@@ -6,7 +6,7 @@ export const handleChangeEmail = (newEmail, userName) => async (dispatch) => {
   try {
   let changeEmail =  await axios({
         method: "patch",
-        url: `http://localhost:4000/api/users/update-email`,
+        url: `/api/users/update-email`,
         data: {
          newEmail:newEmail,
          userName:userName

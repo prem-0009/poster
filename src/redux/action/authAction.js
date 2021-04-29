@@ -10,7 +10,7 @@ export const handleRegister = (username, email, pass) => async (dispatch) => {
 
     try {
       let payload = await axios.post(
-        "http://localhost:4000/api/users/register",
+        "/api/users/register",
         info
       );
 
@@ -34,7 +34,7 @@ export const handleLogin = (username, pass) => async (dispatch) => {
 
   try {
     let payload = await axios.post(
-      "http://localhost:4000/api/users/login",
+      "/api/users/login",
       userInfo
     );
     // console.log(payload);
