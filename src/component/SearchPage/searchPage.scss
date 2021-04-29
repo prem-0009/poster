@@ -1,48 +1,38 @@
-@import 'variables.scss';
+@import "variables.scss";
 
-.display{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    // flex-wrap: wrap;
-    // flex-direction: row;
-    // grid-template-rows: auto;
-    // border: 2px solid white;
-    // width: 30vh;
-    overflow: auto;
-    
-    .img{
-        // width: 300px;
-        // margin: 3px;
-        // position: relative;
-    }
+.display {
+  display: grid;
+  grid-template-columns: auto;
+  // flex-wrap: wrap;
+  // flex-direction: row;
+  // grid-template-rows: auto;
+  //   border: 2px solid black;
+  // width: 30vh;
+  overflow: auto;
+  //   width: 90vw;
+  height: 45vw;
+  margin: auto;
+  width: 50%;
+  //   margin-left: 5em;
+  margin-bottom: 50px;
+  padding-left: 12em;
 
-    .p{
-        color: $font-color;
-        // display: flex;
-        // overflow: auto;
-    }
+  .p {
+    color: $font-color;
+    // display: flex;
+    // overflow: auto;
+  }
 }
 
-
-.second-searchPage{
-    margin: auto;
-    width: 50%;
-    margin-bottom: 30px;
+.second-searchPage {
+  margin: auto;
+  width: 50%;
+  margin-bottom: 30px;
 }
 
-.button-sp{
-    // margin-left: 3px;
-    font-size:large;
-}
-
-.add-searchPage{
-    // position: relative;
-    // bottom: 40px;
-    // right: -65px;
-    background-color: transparent;
-    border: none;
-    // width: 5vmin;
-    // height: 4vmin;
+.button-sp {
+  // margin-left: 3px;
+  font-size: large;
 }
 
 // .home-navbar{
@@ -50,26 +40,49 @@
 //     height: 4vmin;
 // }
 
-.add-searchPage{
-    color: rgb(231, 228, 221);
-    // border:2px solid white;
-    width: fit-content;
-    // margin-top: 0px;
+.add-searchPage {
+  color: rgb(231, 228, 221);
+  //   border:2px solid white;
+  width: fit-content;
+  height: fit-content;
+  //   position: relative;
+  bottom: 0px; //to place inside the image
+  //   right: -65px;
+  background-color: transparent;
+  border: none;
+  margin-right: -25px;
+//   margin-top: 0px;
+  //   margin-left: -50px;
+  //   margin-bottom: -25px;
 }
 
-.add-searchPage:hover{
-    color: orangered;
+.add-searchPage:hover {
+  color: orangered;
 }
 
-.icon-searchPage{
-    width: 3vmin;
-    height: 3vmin;
-    // border: 2px solid white;
+.icon-searchPage {
+  width: 3vmin;
+  height: 3vmin;
+  margin-top: 30vw;
+  margin-left: -25px;
+  // border: 2px solid white;
 }
-.display-within{
-    display: grid;
-    // flex-direction: rows;
-    grid-template-rows: auto;
-    // width: 30vw;
-    border: 2px solid white;
+.display-within {
+  //   display: grid;
+  display: flex;
+  // flex-wrap: wrap;
+  width: 30vw;
+  // flex-direction: rows;
+  //   grid-template-rows: auto;
+  // width: 30vw;
+  //   border: 2px solid white;
+  margin: 2px;
+  margin-right: 2px;
+  padding: 2px;
+}
+
+.img-searchPage {
+  width: 80%;
+  // border: 2px solid red;
+  // margin-right: 2px;
 }

@@ -22,7 +22,7 @@
 }
 
 .fixed-home {
-  // margin-top: 55px;
+  margin-top: 55px;
   // margin-bottom: 15px;
 }
 
@@ -40,30 +40,28 @@
   width: 85vw;
   margin: auto;
   
-  height: 35vw;
-  overflow-y: hidden;
+  // height: 35vw;
+  // overflow-y: hidden;
   // border: $border;
-  // margin-bottom: 5em;
+  // margin-bottom: -30px;
+  // margin-top: 5em;
 }
 
 .h-home {
-  margin-top: 10px;
+  margin-top: 3em;
   color: white;
   margin-bottom: 0;
 }
 
 .flex-home {
   margin-left: 0.5em;
-  margin-right: 7em;
+  margin-right: 9em;
   // overflow: auto;
 }
 .main-fav{
   // overflow: hidden;
   // border: 2px solid black;
-  padding: 0em;
+  // padding: 0em;
   height: 85vh;
 }
 
-.indicator-home{
-  margin-top: 12px;
-}

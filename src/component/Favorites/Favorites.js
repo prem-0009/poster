@@ -34,7 +34,8 @@ export const Favorites = (props) => {
 
   const next = () => {
     if (animating) return;
-    const nextIndex = activeIndex === props.myFavList - 1 ? 0 : activeIndex + 1;
+    const nextIndex =
+      activeIndex === props.myFavList.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   };
 
@@ -85,46 +86,53 @@ export const Favorites = (props) => {
       );
     });
   // ) : (
-  //   <CarouselItem>
-  //     <h3>Nothing here...</h3>)
-  //   </CarouselItem>
-  // );
+  // //   <CarouselItem>
+  //     <div>Nothing here...</div>
+  // //   </CarouselItem>
+  // )
 
   return (
     <div className="main-fav">
+      {/* // <div className="not-using"> */}
       {/* <div className="sec-fav"> */}
-      {/* {slides} */}
 
-      <Container>
-        <Carousel
-          activeIndex={activeIndex}
-          next={next}
-          previous={previous}
-          interval={null}
-        >
-          <CarouselIndicators
-            items={props.myFavList}
+      {props.myFavList === 0 ? null : (
+        <Container>
+          <Carousel
             activeIndex={activeIndex}
-            onClickHandler={goToIndex}
-            // className="indicator-home"
-          />
+            next={next}
+            previous={previous}
+            interval={null}
+          >
+            <CarouselIndicators
+              items={props.myFavList}
+              activeIndex={activeIndex}
+              onClickHandler={goToIndex}
+              // className="indicator-home"
+            />
 
-          {slides}
+            {slides}
 
-          {/* {slides} */}
-          <CarouselControl
-            direction="prev"
-            directionText="Previous"
-            onClickHandler={previous}
-          />
-          <CarouselControl
-            direction="next"
-            directionText="Next"
-            onClickHandler={next}
-          />
-        </Carousel>
-      </Container>
-      {/* {props.myFavList.length > 0 ? (
+            {/* {slides} */}
+            <CarouselControl
+              direction="prev"
+              directionText="Previous"
+              onClickHandler={previous}
+            />
+            <CarouselControl
+              direction="next"
+              directionText="Next"
+              onClickHandler={next}
+            />
+          </Carousel>
+        </Container>
+       )} 
+    </div>
+  );
+
+  // )}
+  {
+    /* {props.myFavList.length > 0 ? (
           props.myFavList.map((item) => (
             <div className="each-fav" key={item._id}>
               <img src={imgHttps + item.poster_path} className="img-fav" alt={item.title}/>
@@ -142,10 +150,13 @@ export const Favorites = (props) => {
           ))
         ) : (
           <h3>Nothing here...</h3>
-        )} */}
-      {/* </div> */}
-    </div>
-  );
+        )} */
+  }
+  {
+    /* </div> */
+  }
+  // </div>
+  // )
 };
 
 const mapStateToProps = (state) => {
