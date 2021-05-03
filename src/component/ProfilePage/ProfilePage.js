@@ -4,7 +4,7 @@ import "./profilePage.scss";
 import { handleChangeEmail } from "../../redux/action/editEmailAction";
 
 export const ProfilePage = (props) => {
-  console.log("profilepage", props);
+  // console.log("profilepage", props);
   const { loginReducer } = props.state;
   const [isTrue, setIsTrue] = useState(false);
 

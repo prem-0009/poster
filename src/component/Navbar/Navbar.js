@@ -18,7 +18,7 @@ import "./navbar.scss";
 import SearchBar from "../SearchBar/SearchBar";
 
 export const Navbar = (props) => {
-  console.log(props);
+  // console.log(props);
 
   return (
     //-------------------------------------------------------return------------

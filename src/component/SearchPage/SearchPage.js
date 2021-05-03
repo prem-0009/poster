@@ -19,7 +19,7 @@ export const SearchPage = (props) => {
   //-------------------------------start component
   //   console.log(props.movieList[0]);
   // console.clear();
-  console.log("searchpage", props);
+  // console.log("searchpage", props);
 
   const refSearchMovie = useRef();
   const [viewInfo, setViewInfo] = useState(false);
@@ -37,12 +37,12 @@ export const SearchPage = (props) => {
     // console.log("movieid", movie);
 
     if (props.favoriteList.length > 0) {
-      console.log("adding on the old list");
+      // console.log("adding on the old list");
 
       let findMovie = props.favoriteList.filter(
         (item) => item._id === movie.id
       );
-      console.log(findMovie);
+      // console.log(findMovie);
       if (findMovie.length !== 0) {
         alert("movie already in the list");
       }
@@ -50,7 +50,7 @@ export const SearchPage = (props) => {
         props.addToFavorite(movie, userId);
       }
     } else {
-      console.log("making new fav list");
+      // console.log("making new fav list");
 
       props.addToFavorite(movie, userId);
     }

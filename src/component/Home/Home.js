@@ -24,7 +24,7 @@ const Home = (props) => {
   // console.log(props);
 
   const [homeMovies, setHomeMovies] = useState([]);
-  console.log(homeMovies[0]);
+  // console.log(homeMovies[0]);
 
   const refSearchMovie = useRef();
   let imgHttps = `https://image.tmdb.org/t/p/w500`;

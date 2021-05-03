@@ -17,7 +17,7 @@ import  AllsFAvList  from "./component/AllsFavList/AllsFAvList";
 
 function App(props) {
   // console.clear();
-  console.log(props);
+  // console.log(props);
 
   useEffect(() => {
     let token = localStorage.getItem("jwtToken");

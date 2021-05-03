@@ -26,7 +26,7 @@ export const Favorites = (props) => {
 
   let imgHttps = `https://image.tmdb.org/t/p/w500`;
 
-  console.log(props.myFavList);
+  // console.log(props.myFavList);
   let userId = props.data;
 
   const [activeIndex, setActiveIndex] = useState(0);

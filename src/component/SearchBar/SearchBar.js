@@ -15,8 +15,8 @@ export const SearchBar = (props) => {
   const refSearchMovie = useRef();
 
   //   const searchMovieHere = (movie) => {
-  console.log("here");
-  console.log(props.state);
+  // console.log("here");
+  // console.log(props.state);
   
   // console.log(movie);
   // const hi = () => {
@@ -79,7 +79,7 @@ export const SearchBar = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
 
   return {
     state,

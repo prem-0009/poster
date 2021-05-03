@@ -9,17 +9,17 @@ export const AllsFAvList = (props) => {
   // console.log(props.user.username);
 
   // console.log(props.allsFavList);
-  console.log(props);
+  // console.log(props);
   const {user}=props;
-console.log(props.user);
+// console.log(props.user);
 
   let othersFavList = props.allsFavList.filter((item) => {
     if (item[0] !== props.user.username) {
       return item;
     }
   });
-  console.log(othersFavList);
-  console.log(props.allsFavList);
+  // console.log(othersFavList);
+  // console.log(props.allsFavList);
   
   
 
@@ -60,17 +60,3 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, { getAllFavorites })(AllsFAvList);
 
-
-{/* <Carousel>
-  <Carousel.Item interval={1000}>
-    <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=First slide&bg=373940"
-      alt="First slide"
-    />
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-    </Carousel.Item>
-</Carousel> */}

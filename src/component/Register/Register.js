@@ -6,7 +6,7 @@ import { handleRegister } from "../../redux/action/authAction";
 import { Route, Redirect } from "react-router-dom";
 
 export const Register = (props) => {
-  console.log(props.isAuth);
+  // console.log(props.isAuth);
 
   const refUsername = useRef();
   const refEmail = useRef();

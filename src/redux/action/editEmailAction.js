@@ -2,7 +2,7 @@ import axios from "axios";
 import * as actionTypes from "../actionTypes/actionTypes";
 
 export const handleChangeEmail = (newEmail, userName) => async (dispatch) => {
-  console.log(newEmail, userName);
+  // console.log(newEmail, userName);
   try {
   let changeEmail =  await axios({
         method: "patch",
@@ -13,7 +13,7 @@ export const handleChangeEmail = (newEmail, userName) => async (dispatch) => {
         },
       })
 
-      console.log(changeEmail);
+      // console.log(changeEmail);
       
       
 

@@ -18,7 +18,7 @@ const initialState = {
 const moviesReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LOAD_SEARCH_MOVIES: //------------------load search movies
-      console.log(action.payload);
+      // console.log(action.payload);
 
       return {
         ...state,
@@ -26,7 +26,7 @@ const moviesReducer = (state = initialState, action) => {
       };
 
     case actionTypes.GET_MY_FAVORITES: //---------------------get my fav
-      console.log(action);
+      // console.log(action);
 
       return {
         ...state,
@@ -49,9 +49,9 @@ const moviesReducer = (state = initialState, action) => {
       };
 
     case actionTypes.ADD_TO_FAV: //------------------------------add to fav
-      console.log(state.myFavoriteList);
+      // console.log(state.myFavoriteList);
 
-      console.log("add to action", action);
+      // console.log("add to action", action);
 
       return {
         ...state,

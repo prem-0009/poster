@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export const Login = (props) => {
   // console.clear();
-  console.log(props);
+  // console.log(props);
 
   const refUsername = useRef();
   const refPassword = useRef();

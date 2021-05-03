@@ -11,8 +11,10 @@ export const addToFavorite = (movie, user) => async (dispatch) => {
   // const [favMovies, setFavMovies] = useState(localStorage.getItem("myFavList")
   // ? (localStorage.getItem("myFavList"))
   // : [])
-  console.log("here");
+  // console.log("here");
 
+
+  
   await axios({
     method: "post",
     url: `/api/favorites/add-favorite`,
