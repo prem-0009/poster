@@ -23,7 +23,7 @@ export const addToFavorite = (movie, user) => async (dispatch) => {
   })
     .then((res) => {
       //put the favorites in the local storage
-      console.log(res.data);
+      // console.log(res.data);
       // localStorage.setItem('myFavorites',JSON.stringify(res.data.favMovie) )
       // setFavMovies([...favMovies,...res.data.favMovie])
       // console.log(favMovies);
@@ -44,7 +44,7 @@ export const getMyFavoritesList = (myId) => async (dispatch) => {
     url: `/api/favorites/get-favorites-by-id/${myId}`,
   });
   // console.log(getMyFavList);
-  console.log(getMyFavList.data.favMovies);
+  // console.log(getMyFavList.data.favMovies);
 
   dispatch({
     type: actionTypes.GET_MY_FAVORITES,
@@ -64,14 +64,14 @@ export const getMyFavoritesList = (myId) => async (dispatch) => {
 
 export const handleToDeleteFav = (movieId, userId) => async (dispatch) => {
   //-----------------delete from fav
-  console.log(movieId, userId);
+  // console.log(movieId, userId);
 
   let deleteThisMovie = await axios({
     method: "delete",
     url: `/api/favorites/delete/${userId}/${movieId}`,
   });
   //after we delete one movie get the new list from BE
-  console.log(deleteThisMovie.data);
+  // console.log(deleteThisMovie.data);
   dispatch({
     type: actionTypes.NEW_LIST_AFTER_DELETION,
     payload: deleteThisMovie.data,
